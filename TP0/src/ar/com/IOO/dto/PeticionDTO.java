@@ -1,47 +1,25 @@
-package ar.com.IOO.modelo.peticion;
+package ar.com.IOO.dto;
 
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-import ar.com.IOO.modelo.Paciente;
-import ar.com.IOO.modelo.Sucursal;
+public class PeticionDTO {
 
-public class Peticion {
-
-	private Paciente paciente;
+	private PacienteDTO paciente;
 	private String obraSocial;
 	private Date fechaDeCarga;
-	private List<PracticaPeticion> practicas = new ArrayList<PracticaPeticion>();
+	private List<PracticaPeticionDTO> practicas = new ArrayList<PracticaPeticionDTO>();
 	private Date fechaEntrega;
 	private String idPeticion;
 	private String estado;
-	private Sucursal sucursal;
+	private SucursalDTO sucursal;
 
-	public Boolean estaCompleta() {
-		return this.todasLasPracticasTienenUnResultado();
-	}
-
-	private Boolean todasLasPracticasTienenUnResultado() {
-		return this.practicas.stream().allMatch(practica -> practica.getResultado() != null);
-
-	}
-
-	public Boolean esUnaPeticionReservada() {
-		return tieneAlgunaPracticaConResultadoReservado();
-	}
-
-	public Boolean tieneAlgunaPracticaConResultadoReservado() {
-		return this.practicas.stream().anyMatch(practica -> practica.tieneResultadoReservado());
-	}
-
-	// GETTERS Y SETTERS
-
-	public Paciente getPaciente() {
+	public PacienteDTO getPaciente() {
 		return paciente;
 	}
 
-	public void setPaciente(Paciente paciente) {
+	public void setPaciente(PacienteDTO paciente) {
 		this.paciente = paciente;
 	}
 
@@ -61,11 +39,11 @@ public class Peticion {
 		this.fechaDeCarga = fechaDeCarga;
 	}
 
-	public List<PracticaPeticion> getPracticas() {
+	public List<PracticaPeticionDTO> getPracticas() {
 		return practicas;
 	}
 
-	public void setPracticas(List<PracticaPeticion> practicas) {
+	public void setPracticas(List<PracticaPeticionDTO> practicas) {
 		this.practicas = practicas;
 	}
 
@@ -93,11 +71,11 @@ public class Peticion {
 		this.estado = estado;
 	}
 
-	public Sucursal getSucursal() {
+	public SucursalDTO getSucursal() {
 		return sucursal;
 	}
 
-	public void setSucursal(Sucursal sucursal) {
+	public void setSucursal(SucursalDTO sucursal) {
 		this.sucursal = sucursal;
 	}
 

@@ -5,6 +5,7 @@ import ar.com.IOO.excepcion.PermisoDenegadoException;
 public abstract class ServicioBase {
 
 	private SessionManager sessionManager;
+	protected ServicioMapeo servicioMapeo;
 
 	protected void puedeRealizar(String unaTarea) throws PermisoDenegadoException {	
 		
